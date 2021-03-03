@@ -1,38 +1,77 @@
 <!DOCTYPE html>
 <html>
- <head> <title>Arthmetic Html</title> </head>
+ <head> <title>Arithmetic Html</title> </head>
 <body>
 
 <h2>Anu Teja Gunda computes</h2>
 
 <form>
     <label for="form1_num1">Enter a number</label>
-    <input type ="number" id="form1_num1" name="form1_num1" min=10 > <br>
+    <input type ="number" id="form1_num1" name="form1_num1" min=10 max=50 step=2 value=10 > <br>
 
     <label for="form1_num2">Enter a number</label>
-    <input type ="number" id="form1_num2" name="form1_num2" min=1 > <br>
+    <input type ="number" id="form1_num2" name="form1_num2" value="2" autofocus > <br>
 
     <input type="button" onclick="permutations()" value="Compute">
 </form>
 
 
-<p id="result">This text will be replaced </p>
+<p id="result">This text will be replaced</p>
 
-<script> 
+<form>
+    <input type="radio" id="add" name="addition" value="plus" onclick="processRadio()">
+    <label for="radioPlus"> + </label></br>
+  
+    <input type="radio" id="minus" name="subtraction" value="minus" onclick="processRadio()">
+    <label for="radioMinus"> - </label></br>
+  
+    <input type="radio" id="times" name="multiplication" value="times">
+    <label for="radioTimes"> * </label></br>
 
-function resolveForm (){
+    <input type="radio" id="divide" name="divison" value="divide">
+    <label for="radioTimes"> / </label></br>
+
+  </form>
+  <p id="result2">This text will be replaced </p>
+
+ <script>
+
+   function permutations()
+{
+
     console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    var first = document.getElementById("form1_num1").value
+    var second = document.getElementById("form1_num2").value
+    var product = 1;
     
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
+    for(let i=first; i>=(first-second+1); i-- )
+    {
+        product = product*i
     }
+
+    out = document.getElementById("result")
+    out.innerHTML = product
 }
+
+    function processRadio() {
+    console.log("Getting Form Values")
+    var first = document.getElementById("form1_num1").value
+    var second = document.getElementById("form1_num2").value
+    first = parseInt(first)
+    second = parseInt(second)
+    out = document.getElementById("result2")
+    if(document.getElementById("add").checked){
+        out.innerHTML = first + second
+    }else if(document.getElementById("minus").checked){
+        out.innerHTML = first - second
+    }else if(document.getElementById("times").checked){
+        out.innerHTML = first * second
+    }else if(document.getElementById("divide").checked){
+        out.innerHTML = first / second
+    }
+    
+}
+
 </script>
 
 </body>
