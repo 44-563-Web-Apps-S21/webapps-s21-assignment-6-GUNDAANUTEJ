@@ -3,7 +3,10 @@
 <head>
     <title>Bear Html</title>
 </head>
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
  
 <body>
 
@@ -90,7 +93,12 @@ function startBear(){
     document.getElementById("result3").innerHTML = Object.values(my_bear)
 }
 
-
+function updatebear(){
+    let pt = document.getElementById("Property").value
+    let vl =document.getElementById("value").value
+    my_bear[pt] = vl
+    document.getElementById("result3").innerHTML = Object.values(my_bear)
+}
 
 </script>
 
