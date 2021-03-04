@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bear Html</title>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+ 
+<body>
+
+<h2>Anu Teja Gunda builds a Bear</h2>
+<div class="container">
+    <div class="form-group">
+        
+        <p>
+
+        </p>
+        <form>
+            <div class="checkbox">
+                <input type="checkbox" id="hat1" name="hat1" value="hat">
+                <label for="bHAT"> Hat </label></br>
+            </div>
+            <div class="checkbox">
+                <input type="checkbox" id="scarf1" name="scarf1" value="scarf">
+                <label for="bScarf"> Scarf </label></br>
+            </div>
+            <div>
+                <input type="checkbox" id="shirt1" name="shirt1" value="shirt">
+                <label for="bShirt"> Shirt </label></br>
+            </div>
+            <button type="Start A Bear" class="btn btn-secondary bg-success" onclick="startbear()">Start a Bear</button>
+        </form>
+    </div>
+</div>
+    
+<br>
+<div class="container">
+    <p id="result3">When the button gets clicked, the "RESULTS GOES HERE"</p>
+</div>
+<br>
+
+
+<div class="container">
+    <form>
+        <div class="form-group">
+            <label for="property">Enter a property</label>
+            <input type ="text" id="property" name="bearFormProperty" value="color"> <br>
+        </div>
+        <div class="form-group">
+            <label for="value">What's your Value </label>
+            <input type ="text" id="value" name="bearFormValue" > <br>
+        </div>
+        <div class="button">
+            <button type="Update the Bear" class="btn btn-secondary bg-success" onclick="updatebear()">Update the bear</button>
+        </div>
+    </form>
+</div>
+    
+
+
+<script> 
+var my_bear = {}
+function startBear(){
+    my_bear = {}
+    if(document.getElementById("h1").checked){
+        my_bear["hat"] = true
+        alert("Just checked the Hat! It looks great on the Bear")
+    }else{
+        my_bear["hat"] = false
+        alert("Sad! you should have checked the Hat")
+    }
+
+    if(document.getElementById("s1").checked){
+        my_bear["scarf"] = true
+        alert("You just picked the scarf! It looks great on the Bear")
+    }else{
+        my_bear["scarf"] = false
+        alert("Sad! you should've picked up the Scarf")
+    }
+
+    if(document.getElementById("i1").checked){
+        my_bear["shirt"] = true
+        alert(" It looks great on the Bear")
+    }else{
+        my_bear["shirt"] = false
+        alert("you should've selected the Shirt")
+    }
+    if(document.getElementById("h1").checked && document.getElementById("s1").checked && document.getElementById("i1").checked ){
+        alert("You have a Great Taste.")
+    }
+    document.getElementById("result3").innerHTML = Object.values(my_bear)
+}
+
+
+
+</script>
+
+</body>
+</html> 
