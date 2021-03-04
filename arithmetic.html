@@ -5,77 +5,83 @@
 
 <h2>Anu Teja Gunda computes</h2>
 
-<form>
-    <label for="form1_num1">Enter a number</label>
-    <input type ="number" id="form1_num1" name="form1_num1" min=10 max=50 step=2 value=10 > <br>
+  
+<div class = "container bg-success">
+    <form>
+    <label for="Anum1">Enter a number </label>
+    <input type ="number" id="Anum1" name="Anum1" min=10 max=50 step=2 value=10> <br>
 
-    <label for="form1_num2">Enter a number</label>
-    <input type ="number" id="form1_num2" name="form1_num2" value="2" autofocus > <br>
+    <label for="Anum2">Enter a number </label>
+    <input type ="number" id="Anum2" name="Anum2" autofocus value=2> <br>
 
-    <input type="button" onclick="permutations()" value="Compute">
+    <input type="button" onclick="permutations()" value="compute">
 </form>
+</div>
+<div>
+<p class = "container text-danger" id="result">This text will be replaced </p>
+</div>
+<script> 
 
 
-<p id="result1">This text will be replaced</p>
-
-<form>
-    <input type="radio" id="add" name="addition" value="plus" onclick="processRadio()">
-    <label for="radioPlus"> + </label></br>
-  
-    <input type="radio" id="minus" name="subtraction" value="minus" onclick="processRadio()">
-    <label for="radioMinus"> - </label></br>
-  
-    <input type="radio" id="times" name="multiplication" value="times">
-    <label for="radioTimes"> * </label></br>
-
-    <input type="radio" id="divide" name="divison" value="divide">
-    <label for="radioTimes"> / </label></br>
-
-  </form>
-  <p id="result2">This text will be replaced </p>
-
- <script>
-
-   function permutations()
-{
-
-    console.log("Getting form values")
-    var first = document.getElementById("form1_num1").value
-    var second = document.getElementById("form1_num2").value
-    var product = 1;
+function permutations (){
     
-    for(let i=first; i>=(first-second+1); i-- )
+    num1 = document.getElementById("Anum1").value
+    num2 = document.getElementById("Anum2").value
+    let product =1
+    for( first =num1 ; first>=(num1-num2 +1); first--)
     {
-        product = product*i
-    }
-
-    out = document.getElementById("result1")
-    out.innerHTML = product
-}
-
-    function processRadio() {
-    console.log("Getting Form Values")
-    var first = document.getElementById("form1_num1").value
-    var second = document.getElementById("form1_num2").value
-    first = parseInt(first)
-    second = parseInt(second)
-    out = document.getElementById("result2")
-    if(document.getElementById("add").checked){
-        out.innerHTML = first + second
-
-    }else if(document.getElementById("minus").checked){
-        out.innerHTML = first - second
-
-    }else if(document.getElementById("times").checked){
-        out.innerHTML = first * second
-
-    }else if(document.getElementById("divide").checked){
-        out.innerHTML = first / second
+        product = product * first
     }
     
+    document.getElementById("result").innerHTML = num1 + " permute "+num2 +" should be "+product
 }
-
 </script>
+<div class = "container bg-success">
+<form>
+    <input type ="radio" id = "add" name = "arith_oper" onclick="processRadio()">
+    <label for ="add" >+</label><br>
+    <input type ="radio" id = "minus" name = "arith_oper" onclick="processRadio()">
+    <label for ="minus" >-</label><br>
+    <input type ="radio" id = "multiply" name = "arith_oper" onclick="processRadio()">
+    <label for ="multiply" >*</label><br>
+    <input type ="radio" id = "divide" name = "arith_oper" onclick="processRadio()">
+    <label for ="divide" >/</label><br>
 
+</form>
+</div>
+<div>
+<p class = "container text-danger" id = "res">Results of Radio buttons will be shown here</p>
+</div>
+<script>
+    function processRadio(){
+        num1 = document.getElementById("Anum1").value
+         num2 = document.getElementById("Anum2").value
+         result = 0
+         text = ""
+        if(document.getElementById("add").checked == true)
+        {
+            result = +num1 + +num2
+            text = "sum of " +num1+" and " +num2+ " is "+result
+        }
+       else if(document.getElementById("minus").checked == true)
+        {
+            result = num1 - num2
+            text = "Difference of " +num1+" and " +num2+ " is "+result
+        }
+        else if(document.getElementById("multiply").checked == true)
+        {
+            result = num1  * num2
+            text = "Product of " +num1+" and " +num2+ " is "+result
+        }
+        else if(document.getElementById("divide").checked =true)
+        {
+            result = num1/num2
+            text = "Division of " +num1+" and " +num2+ " is "+result
+        }
+        document.getElementById("res").innerHTML = text
+
+    }
+</script>
 </body>
 </html> 
+
